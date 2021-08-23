@@ -6,17 +6,17 @@ int select_num(int);
 // 1,000 보다 작거나 같은 자연수 N 제시됨.
 using namespace std;
 
-bool arithmetic_prog(int input) { // 등차수열인지 판별
+bool arithmetic_prog(int input) { // 각 자리수가 등차수열인지 판별
     if (input < 10) return 1;
     if (input < 100) return 1;
     else if (input < 1000) {
         int n1 = input/100; // 100의자리
         int n2 = (input%100)/10; // 10의자리
         int n3 = input%10; //1의 자리
-        if ((n2-n1) == (n3-n2)) return 1;
-        else return 0;
+        if ((n2-n1) == (n3-n2)) return 1; // 만약 차가 일정하다?
+        else return 0; // 등차수열 아닌 경우
     }
-    if (input == 1000) return 0;
+    if (input == 1000) return 0; // 1,000 은 등차수열 아님
 }
 
 int select_num(int n) {  // 개수 세기
@@ -32,7 +32,7 @@ int select_num(int n) {  // 개수 세기
 int main() {
     int Input;
 
-    cin >> Input;
+    cin >> Input; // 양의 정수 입력
 
     cout << select_num(Input) << endl;
 }
